@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | BIOSALUD</title>
+  <link rel="icon" href="/img/logo-icono.png">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <a href="/" class="navbar-marca">
+      <img src="/img/logo-icono.png" alt="Logo BIOSALUD">
+      <span><b>BIO</b>SALUD</span>
+    </a>
+    <nav class="navbar-links">
+      <a href="/">Inicio</a>
+      <a href="/dashboard" class="activo">Dashboard</a>
+      <a href="/pacientes">Pacientes</a>
+      <a href="/medicos">Médicos</a>
+      <a href="/citas">Citas</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- ============ ENCABEZADO ============ -->
+    <div class="pagina-titulo">
+      <h1>Dashboard</h1>
+      <p>Resumen general del hospital</p>
+    </div>
+
+    <!-- ============ TARJETAS DE TOTALES ============ -->
+    <!-- Los números se llenan desde /js/dashboard.js -->
+    <section class="estadisticas">
+      <div class="estadistica azul">
+        <span class="estadistica-icono">👥</span>
+        <div>
+          <strong id="total-pacientes">0</strong>
+          <p>Total de pacientes</p>
+        </div>
+      </div>
+      <div class="estadistica verde">
+        <span class="estadistica-icono">🩺</span>
+        <div>
+          <strong id="total-medicos">0</strong>
+          <p>Total de médicos</p>
+        </div>
+      </div>
+      <div class="estadistica azul">
+        <span class="estadistica-icono">📅</span>
+        <div>
+          <strong id="total-programadas">0</strong>
+          <p>Citas programadas</p>
+        </div>
+      </div>
+      <div class="estadistica naranja">
+        <span class="estadistica-icono">⏳</span>
+        <div>
+          <strong id="total-pendientes">0</strong>
+          <p>Citas pendientes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PANELES ============ -->
+    <section class="paneles">
+
+      <div class="panel">
+        <div class="panel-encabezado">
+          <h2>Próximas citas</h2>
+          <a href="/citas">Ver todas</a>
+        </div>
+        <div class="tabla-contenedor">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Médico</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-proximas-citas">
+              <tr><td colspan="5" class="vacio">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-encabezado">
+          <h2>Pacientes recientes</h2>
+          <a href="/pacientes">Ver todos</a>
+        </div>
+        <ul class="lista-pacientes" id="lista-pacientes-recientes">
+          <li class="vacio">Cargando...</li>
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="footer">
+    <p><b>BIOSALUD</b> · Vida, salud y tecnología</p>
+    <p>© 2026 · Proyecto académico</p>
+  </footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

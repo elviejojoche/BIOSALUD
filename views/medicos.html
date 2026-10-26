@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Médicos | BIOSALUD</title>
+  <link rel="icon" href="/img/logo-icono.png">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <a href="/" class="navbar-marca">
+      <img src="/img/logo-icono.png" alt="Logo BIOSALUD">
+      <span><b>BIO</b>SALUD</span>
+    </a>
+    <nav class="navbar-links">
+      <a href="/">Inicio</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/pacientes">Pacientes</a>
+      <a href="/medicos" class="activo">Médicos</a>
+      <a href="/citas">Citas</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- Mensajes de éxito o error -->
+    <div id="mensaje" class="alerta oculto"></div>
+
+    <!-- ============ ENCABEZADO ============ -->
+    <div class="pagina-titulo con-boton">
+      <div>
+        <h1>Médicos</h1>
+        <p>Equipo médico del hospital</p>
+      </div>
+      <button class="btn btn-secundario" id="btn-nuevo">+ Nuevo médico</button>
+    </div>
+
+    <!-- ============ BÚSQUEDA Y TABLA ============ -->
+    <div class="panel">
+      <input type="search" id="buscador" class="buscador"
+             placeholder="🔍 Buscar por nombre, especialidad o documento...">
+
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Especialidad</th>
+              <th>Documento</th>
+              <th>Teléfono</th>
+              <th>Correo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-medicos">
+            <tr><td colspan="8" class="vacio">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FORMULARIO (ventana emergente) ============ -->
+  <!-- Se usa el mismo formulario para registrar y para editar -->
+  <dialog id="modal" class="modal">
+    <form id="formulario" novalidate>
+      <h2 id="titulo-formulario">Nuevo médico</h2>
+      <input type="hidden" name="id">
+
+      <div class="campos">
+        <label>Nombre completo *
+          <input type="text" name="nombre" placeholder="Ej: Dra. Paula Andrade">
+          <small class="error" data-error="nombre"></small>
+        </label>
+
+        <label>Especialidad *
+          <select name="especialidad">
+            <option value="">-- Seleccione --</option>
+            <option>Medicina general</option>
+            <option>Pediatría</option>
+            <option>Cardiología</option>
+            <option>Dermatología</option>
+            <option>Ginecología</option>
+            <option>Neurología</option>
+            <option>Ortopedia</option>
+            <option>Oftalmología</option>
+            <option>Psiquiatría</option>
+          </select>
+          <small class="error" data-error="especialidad"></small>
+        </label>
+
+        <label>Documento *
+          <input type="text" name="documento" placeholder="Solo números">
+          <small class="error" data-error="documento"></small>
+        </label>
+
+        <label>Teléfono *
+          <input type="text" name="telefono" placeholder="Ej: 3201234567">
+          <small class="error" data-error="telefono"></small>
+        </label>
+
+        <label>Correo *
+          <input type="email" name="correo" placeholder="nombre@biosalud.com">
+          <small class="error" data-error="correo"></small>
+        </label>
+
+        <label>Estado
+          <select name="estado">
+            <option>Activo</option>
+            <option>Inactivo</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="modal-botones">
+        <button type="button" class="btn btn-gris" id="btn-cancelar">Cancelar</button>
+        <button type="submit" class="btn">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="footer">
+    <p><b>BIOSALUD</b> · Vida, salud y tecnología</p>
+    <p>© 2026 · Proyecto académico</p>
+  </footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/medicos.js"></script>
+</body>
+</html>

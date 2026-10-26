@@ -1,0 +1,18 @@
+# Dependencias (se instalan con "npm install")
+node_modules/
+
+# Código compilado (se genera con "npm run build")
+dist/
+
+# Variables de entorno (contraseñas, puertos, etc.)
+.env
+
+# Registros de errores
+npm-debug.log*
+*.log
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

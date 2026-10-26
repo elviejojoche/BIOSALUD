@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citas | BIOSALUD</title>
+  <link rel="icon" href="/img/logo-icono.png">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar">
+    <a href="/" class="navbar-marca">
+      <img src="/img/logo-icono.png" alt="Logo BIOSALUD">
+      <span><b>BIO</b>SALUD</span>
+    </a>
+    <nav class="navbar-links">
+      <a href="/">Inicio</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/pacientes">Pacientes</a>
+      <a href="/medicos">Médicos</a>
+      <a href="/citas" class="activo">Citas</a>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- Mensajes de éxito o error -->
+    <div id="mensaje" class="alerta oculto"></div>
+
+    <!-- ============ ENCABEZADO ============ -->
+    <div class="pagina-titulo con-boton">
+      <div>
+        <h1>Citas</h1>
+        <p>Programación de citas médicas</p>
+      </div>
+      <button class="btn btn-secundario" id="btn-nueva">+ Nueva cita</button>
+    </div>
+
+    <!-- ============ FILTROS Y TABLA ============ -->
+    <div class="panel">
+      <div class="filtros">
+        <input type="search" id="buscador" class="buscador"
+               placeholder="🔍 Buscar por paciente, médico o motivo...">
+        <select id="filtro-estado" class="buscador">
+          <option value="">Todos los estados</option>
+          <option>Pendiente</option>
+          <option>Confirmada</option>
+          <option>Atendida</option>
+          <option>Cancelada</option>
+        </select>
+      </div>
+
+      <div class="tabla-contenedor">
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Médico</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Motivo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-citas">
+            <tr><td colspan="8" class="vacio">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FORMULARIO (ventana emergente) ============ -->
+  <!-- Se usa el mismo formulario para registrar y para editar -->
+  <dialog id="modal" class="modal">
+    <form id="formulario" novalidate>
+      <h2 id="titulo-formulario">Nueva cita</h2>
+      <input type="hidden" name="id">
+
+      <div class="campos">
+        <!-- Las opciones de paciente y médico se cargan desde la API -->
+        <label>Paciente *
+          <select name="pacienteId">
+            <option value="">-- Seleccione --</option>
+          </select>
+          <small class="error" data-error="pacienteId"></small>
+        </label>
+
+        <label>Médico *
+          <select name="medicoId">
+            <option value="">-- Seleccione --</option>
+          </select>
+          <small class="error" data-error="medicoId"></small>
+        </label>
+
+        <label>Fecha *
+          <input type="date" name="fecha">
+          <small class="error" data-error="fecha"></small>
+        </label>
+
+        <label>Hora *
+          <input type="time" name="hora">
+          <small class="error" data-error="hora"></small>
+        </label>
+
+        <label class="campo-completo">Motivo de la consulta *
+          <textarea name="motivo" rows="3" placeholder="Ej: Control general, dolor de cabeza..."></textarea>
+          <small class="error" data-error="motivo"></small>
+        </label>
+
+        <label>Estado
+          <select name="estado">
+            <option>Pendiente</option>
+            <option>Confirmada</option>
+            <option>Atendida</option>
+            <option>Cancelada</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="modal-botones">
+        <button type="button" class="btn btn-gris" id="btn-cancelar">Cancelar</button>
+        <button type="submit" class="btn">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ============ PIE DE PÁGINA ============ -->
+  <footer class="footer">
+    <p><b>BIOSALUD</b> · Vida, salud y tecnología</p>
+    <p>© 2026 · Proyecto académico</p>
+  </footer>
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/citas.js"></script>
+</body>
+</html>
