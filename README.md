@@ -81,8 +81,8 @@ Navegador → routes → controllers → validations → services → data
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/USUARIO/biosalud.git
-   cd biosalud
+   git clone https://github.com/elviejojoche/BIOSALUD.git
+   cd BIOSALUD
    ```
 
 2. Instalar las dependencias:
